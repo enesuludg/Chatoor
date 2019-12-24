@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "643631983442",
+    "firebase_url": "https://chatoor-5919d.firebaseio.com",
+    "project_id": "chatoor-5919d",
+    "storage_bucket": "chatoor-5919d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:643631983442:android:1da7c57c7b462e692be88b",
+        "android_client_info": {
+          "package_name": "com.example.chatoor"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "643631983442-p0b8c5j8e80lsbtggeai1hilof6hv1j5.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.chatoor",
+            "certificate_hash": "1c33268afb7101f10fb63a4ec0a836acecfc5cc4"
+          }
+        },
+        {
+          "client_id": "643631983442-85r9ch571i2frti29336mfhm58t2ajoc.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBZdVgsaBWjEtF7eSy8Q1a8JhmHOK9p5Jo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "643631983442-85r9ch571i2frti29336mfhm58t2ajoc.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimary2"
+
+    tools:context=".StartActivity">
+
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/icons8png"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/txtw"
+        android:layout_marginTop="85dp"
+        />
+    <TextView
+
+        android:id="@+id/txtw"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/app_name"
+        android:textSize="45sp"
+        android:textColor="@android:color/holo_blue_dark"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="55dp"/>
+
+    <Button
+        android:id="@+id/register"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/btn1"
+        android:text="@string/sing_up"
+        android:textColor="#fff"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="70dp"/>
+
+    <Button
+        android:id="@+id/login"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/btn2"
+        android:text="@string/sign_in"
+        android:textColor="#fff"
+        android:layout_above="@+id/register"
+        android:layout_marginBottom="20dp"/>
+
+
+
+
+
+</RelativeLayout>
