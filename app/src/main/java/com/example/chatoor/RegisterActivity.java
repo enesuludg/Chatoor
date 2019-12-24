@@ -104,6 +104,7 @@ public class RegisterActivity extends AppCompatActivity {
                         }
                     });
 
+                    // hata alındı
                 } else {
 
                     Toast.makeText(RegisterActivity.this, "You Can't Reagister Woth This Email" +

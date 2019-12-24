@@ -48,7 +48,7 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         getSupportActionBar().setTitle("");
 
-        profile_image = findViewById(R.id.profilimage);
+        profile_image = findViewById(R.id.profile_image);
         username = findViewById(R.id.username);
         firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
         reference =

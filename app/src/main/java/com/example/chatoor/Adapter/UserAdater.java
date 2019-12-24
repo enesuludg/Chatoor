@@ -24,7 +24,7 @@ public class UserAdater extends RecyclerView.Adapter<UserAdater.ViewHolder> {
     private Context mContext;
     private List<User> mUser;
 
-    public UserAdater(Context mContext , List mUser){
+    public UserAdater(Context mContext , List<User> mUser){
 
         this.mUser = mUser;
         this.mContext = mContext;
@@ -44,10 +44,10 @@ public class UserAdater extends RecyclerView.Adapter<UserAdater.ViewHolder> {
         holder.username.setText(user.getUsername());
         if (user.getImageURL().equals("default")){
 
-            holder.profil_image.setImageResource(R.mipmap.ic_launcher);
+            holder.profile_image.setImageResource(R.mipmap.ic_launcher);
         }else{
 
-            Glide.with(mContext).load(user.getImageURL()).into(holder.profil_image);
+            Glide.with(mContext).load(user.getImageURL()).into(holder.profile_image);
         }
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
@@ -69,13 +69,13 @@ public class UserAdater extends RecyclerView.Adapter<UserAdater.ViewHolder> {
     public class ViewHolder extends RecyclerView.ViewHolder{
 
         public TextView username;
-        public ImageView profil_image;
+        public ImageView profile_image;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
 
             username =itemView.findViewById(R.id.username);
-            profil_image= itemView.findViewById(R.id.profil_image);
+            profile_image= itemView.findViewById(R.id.profile_image);
         }
     }
 }
