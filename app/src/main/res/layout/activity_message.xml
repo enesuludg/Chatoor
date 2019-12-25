@@ -58,6 +58,8 @@
             android:layout_height="wrap_content"
             android:background="@android:color/transparent"
             android:hint="Type a message"
+            android:imeOptions="actionDone"
+            android:singleLine="true"
             android:layout_toLeftOf="@+id/btn_send"
             android:layout_centerVertical="true"/>
         <ImageButton
