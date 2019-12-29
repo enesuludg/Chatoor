@@ -15,7 +15,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".ForgotPasswordActivity" android:parentActivityName=".LoginActivity"></activity>
+        <activity android:name=".ForgotPasswordActivity"
+            android:parentActivityName=".LoginActivity"></activity>
         <activity android:name=".MessageActivity" />
         <activity android:name=".MainActivity" />
         <activity

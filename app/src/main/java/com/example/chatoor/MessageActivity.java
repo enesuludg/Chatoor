@@ -138,6 +138,7 @@ public class MessageActivity extends AppCompatActivity {
 
     private void seenMessage(final String userid){
 
+
         reference = FirebaseDatabase.getInstance().getReference("Chats");
         seenListener = reference.addValueEventListener(new ValueEventListener() {
             @Override
@@ -170,6 +171,27 @@ public class MessageActivity extends AppCompatActivity {
         hashMap.put("isseen",false);
 
         reference.child("Chats").push().setValue(hashMap);
+
+
+
+        final String userid = intent.getStringExtra("userid");
+
+       final DatabaseReference chatRef =
+                FirebaseDatabase.getInstance().getReference("ChatList").child(fuser.getUid()).child(userid);
+         chatRef.addListenerForSingleValueEvent(new ValueEventListener() {
+             @Override
+             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                 if (!dataSnapshot.exists()){
+                     chatRef.child("id").setValue(userid);
+                 }
+
+             }
+
+             @Override
+             public void onCancelled(@NonNull DatabaseError databaseError) {
+
+             }
+         });
 
         /*
         final DatabaseReference chatRef =
