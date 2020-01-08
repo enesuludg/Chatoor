@@ -19,6 +19,7 @@ import com.example.chatoor.R;
 import com.example.chatoor.model.Chat;
 import com.example.chatoor.model.Chatlist;
 import com.example.chatoor.model.User;
+import com.example.chatoor.notifications.Token;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -26,6 +27,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.iid.FirebaseInstanceId;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.StorageTask;
 
@@ -77,6 +79,7 @@ public class ChatFragment extends Fragment {
             }
         });
 
+        updateToken(FirebaseInstanceId.getInstance().getToken());
 
         /*
         reference = FirebaseDatabase.getInstance().getReference("Chats");
@@ -151,6 +154,12 @@ public class ChatFragment extends Fragment {
             }
         });
 
+    }
+
+    public void updateToken(String token){
+        DatabaseReference reference = FirebaseDatabase.getInstance().getReference("Tokens");
+        Token mToken = new Token(token);
+        reference.child(fuser.getUid()).setValue(mToken);
     }
 
 /*

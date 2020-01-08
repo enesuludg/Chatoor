@@ -10,7 +10,9 @@ import androidx.fragment.app.FragmentPagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
@@ -20,6 +22,8 @@ import com.example.chatoor.Fragments.ChatFragment;
 import com.example.chatoor.Fragments.ProfileFragment;
 import com.example.chatoor.Fragments.UsersFragment;
 import com.example.chatoor.model.User;
+import com.example.chatoor.notifications.Token;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.tabs.TabLayout;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -28,6 +32,8 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.iid.FirebaseInstanceId;
+import com.google.firebase.iid.InstanceIdResult;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -40,11 +46,65 @@ public class MainActivity extends AppCompatActivity {
     TextView username;
     FirebaseUser firebaseUser;
     DatabaseReference reference;
+    String mUID;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+
+        //updateToken(FirebaseInstanceId.getInstance().);
+        //FirebaseInstanceId.getInstance().getInstanceId().addOnCanceledListener(MainActivity.this,
+               // new OnSuccessListener<InstanceIdResult>())
+
+
+        //mainfest
+
+        FirebaseInstanceId.getInstance().getInstanceId().addOnSuccessListener(
+                new OnSuccessListener<InstanceIdResult>() {
+            @Override
+            public void onSuccess(InstanceIdResult instanceIdResult) {
+                String mToken = instanceIdResult.getToken();
+               // updateToken(mToken);
+                Log.e("Token",mToken);
+            }
+        });
+
+
+
+
+
+        if (firebaseUser != null){
+
+
+
+            startActivity(new Intent(getApplicationContext(),StartActivity.class).setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP));
+
+        }else {
+
+
+            /*
+
+             mUID = firebaseUser.getUid();
+
+
+            // last
+            SharedPreferences sp = getSharedPreferences("SP_USER",MODE_PRIVATE);
+            SharedPreferences.Editor editor = sp.edit();
+            editor.putString("Current_USERID",mUID);
+            editor.apply();
+
+
+
+
+
+
+            Intent intent =new Intent(MainActivity.this,StartActivity.class);
+            startActivity(intent);
+            finish(); */
+        }
 
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -174,6 +234,7 @@ public class MainActivity extends AppCompatActivity {
         super.onPause();
         status("offline");
     }
+
 }
 
 

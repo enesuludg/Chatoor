@@ -3,17 +3,24 @@ package com.example.chatoor;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import com.example.chatoor.notifications.Token;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.iid.FirebaseInstanceId;
 
 public class StartActivity extends AppCompatActivity {
 
     Button login, register;
     FirebaseUser firebaseUser;
+
+    String mUID;
 
 
     @Override
@@ -21,12 +28,23 @@ public class StartActivity extends AppCompatActivity {
         super.onStart();
         firebaseUser= FirebaseAuth.getInstance().getCurrentUser();
 
+        /*
         if (firebaseUser != null){
+
+            mUID = firebaseUser.getUid();
+
+            /*
+            // last
+            SharedPreferences sp = getSharedPreferences("SP_USER",MODE_PRIVATE);
+            SharedPreferences.Editor editor = sp.edit();
+            editor.putString("Current_USERID",mUID);
+            editor.apply();
 
             Intent intent =new Intent(StartActivity.this,MainActivity.class);
             startActivity(intent);
             finish();
         }
+        */
     }
 
     @Override
@@ -53,5 +71,9 @@ public class StartActivity extends AppCompatActivity {
                 startActivity(new Intent(StartActivity.this,RegisterActivity.class));
             }
         });
+
+
     }
+
+
 }
