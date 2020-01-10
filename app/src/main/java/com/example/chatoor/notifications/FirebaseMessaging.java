@@ -29,27 +29,25 @@ public class FirebaseMessaging extends FirebaseMessagingService {
     public void onMessageReceived(@NonNull RemoteMessage remoteMessage) {
         super.onMessageReceived(remoteMessage);
 
-        //SharedPreferences s = getSharedPreferences("SP_USER",MODE_PRIVATE);
-        //String savedCurrentUser = s.getString("Current_USERID","None");
-        //sendnormalnot(remoteMessage);
+        SharedPreferences preferences = getSharedPreferences("PREFS",MODE_PRIVATE);
+        String currentUser = preferences.getString("Current_USERID","None");
 
 
         String sent = remoteMessage.getData().get("sent");
-        //String user = remoteMessage.getData().get("user");
+        String user = remoteMessage.getData().get("user");
         FirebaseUser firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
 
+if (firebaseUser != null ) {
+    if (!currentUser.equals(user)) {
 
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            Oreoandabove(remoteMessage);
+        } else {
+            sendnormalnot(remoteMessage);
 
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O){
-                    Oreoandabove(remoteMessage);
-                }
-                else{
-                    sendnormalnot(remoteMessage);
-
-                }
-
-
-
+        }
+    }
+}
 
 
 
